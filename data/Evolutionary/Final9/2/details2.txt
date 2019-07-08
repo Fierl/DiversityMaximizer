@@ -1,0 +1,16 @@
+Mutation Accomplished:
+1
+Mutation Tried:
+12
+Crossover Accomplished:
+16
+Crossover Tried:
+150
+Time:
+4735.37425160408
+New Road to Achieve at
+1204.2876598834991
+Distance:
+1.0833333333333335
+OobCount: 
+7

@@ -1,0 +1,8 @@
+New Roads generated:
+4
+Distance
+2.1666666666666665
+Time:
+1559.9269199371338
+OobCount: 
+3

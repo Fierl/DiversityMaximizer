@@ -1,0 +1,12 @@
+Mutation Accomplished:
+1
+Mutation Tried:
+9
+Crossover Accomplished:
+14
+Crossover Tried:
+130
+Time:
+6136.197305679321
+OobCount: 
+4

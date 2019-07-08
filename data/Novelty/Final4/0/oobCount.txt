@@ -1,0 +1,11 @@
+Count1: 1000
+Count2: 1
+Count3: 2
+Count4: 2
+Count5: 0
+Count6: 0
+Count7: 0
+Count8: 0
+Count9: 0
+Count10: 0
+l_turn_-90_002.00 r_turn_-45_037.00 r_turn_-90_002.00 r_turn_90_002.00 l_turn_-75_002.00 
