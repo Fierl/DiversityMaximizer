@@ -1,0 +1,11 @@
+Count1: 4
+Count2: 6
+Count3: 2
+Count4: 1
+Count5: 1
+Count6: 0
+Count7: 0
+Count8: 2
+Count9: 0
+Count10: 0
+l_turn_-90_002.00 r_turn_30_017.00 r_turn_-45_017.00 r_turn_-120_002.00 r_turn_-120_002.00 r_turn_-120_002.00 straight_70 r_turn_75_002.00 l_turn_-45_022.00 r_turn_75_002.00 l_turn_105_002.00 

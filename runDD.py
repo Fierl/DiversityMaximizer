@@ -1,3 +1,5 @@
+# This script is the connection between deepdrive and beamngpy
+
 import cv2
 import time
 import math
@@ -13,8 +15,7 @@ from shapely.geometry import Point
 
 import speed_dreams as sd
 
-
-
+# Paths for beamng and the generated scenarios
 BEAMNG_HOME="D:\\SimonFierbeck\\BeamNG.research_unlimited\\trunk"
 pathToScenarioBeamng = 'd:/SimonFierbeck/BeamNG.research_unlimited/trunk/levels/asfault/scenarios'
 pathToScenarioDocuments = 'c:/Users/Simon/Documents/BeamNG.research/levels/asfault/scenarios'
@@ -23,6 +24,8 @@ oobCount = 0
 oobCountList = []
 finalPath = 'd:/SimonFierbeck/AsFault/results/Set/'
 
+
+# Writes the end result into a text file
 def writeFile(oobList, segmentList, directoryCount):
     fileCount = 0
     with open(os.path.join(finalPath, str(directoryCount), 'oobCount' + '.txt'), 'w') as fp:
@@ -33,6 +36,7 @@ def writeFile(oobList, segmentList, directoryCount):
             fp.write(segment + " ")
 
 
+# Copied from DeepDrive Wrapper
 def get_segment(test, state):
     network = test.network
     pos = Point(state['pos'][0], state['pos'][1])
@@ -42,6 +46,8 @@ def get_segment(test, state):
     else:
         return None
 
+
+# Copied from DeepDrive Wrapper
 def off_track(test, state):
     distance = get_centre_distance(test, state)
     if distance > 4 / 2.0:
@@ -49,6 +55,8 @@ def off_track(test, state):
 
     return False
 
+
+# Copied from DeepDrive Wrapper
 def get_path_projection(test, state):
     path = test.get_path_polyline()
     point = Point(state['pos'][0], state['pos'][1])
@@ -60,6 +68,7 @@ def get_path_projection(test, state):
     return proj
 
 
+# Copied from DeepDrive Wrapper
 def get_centre_distance(test, state):
     proj = get_path_projection(test, state)
     pos = Point(state['pos'][0], state['pos'][1])
@@ -75,11 +84,15 @@ def get_centre_distance(test, state):
     distance = math.fabs(distance)
     return distance
 
+
+# Copied from DeepDrive Wrapper
 def goal_reached(test, state):
     pos = Point(state['pos'][0], state['pos'][1])
     distance = pos.distance(test.goal)
     return distance < 10
 
+
+# Copied from DeepDrive Wrapper
 def preprocess(img, brightness):
 
     # Elaborate Frame from BeamNG
@@ -98,6 +111,7 @@ def preprocess(img, brightness):
     return preprocessed
 
 
+# Copied from DeepDrive Wrapper
 def translate_steering(original_steering_value):
     # Using a quadratic function might be too much
     # newValue = -1.0 * (0.4 * pow(original_steering_value, 2) + 0.6 * original_steering_value + 0)
@@ -111,7 +125,7 @@ def translate_steering(original_steering_value):
     # print("Steering", original_steering_value, " -> ", newValue)
     return newValue
 
-
+# Copied from DeepDrive Wrapper
 def main(MAX_SPEED):
     setup_logging()
 
@@ -227,6 +241,9 @@ def main(MAX_SPEED):
     global oobCount
     port = 50000
     count = 0
+
+    # 72 is a randomly selected number, it is the sum of 6(number of different test suites) * 12(number of test suites
+    # inside test suite)
     while count < 72:
         testList = getTestsFromJson(os.path.join(finalPath, str(count)))
         segmentList = []
@@ -279,6 +296,7 @@ def main(MAX_SPEED):
                 # if theRoad is None:
                 #     print("WARNING Cannot find the main road of the map")
 
+                # Copied from DeepDrive Wrapper
                 while runningTest:
                     # Resume the execution
                     # 6 steps correspond to 10 FPS with a resolution of 60FPS

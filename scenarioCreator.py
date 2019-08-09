@@ -1,7 +1,6 @@
-
+# this script is used to generate a scenario from an asfault generated road
+# most of it is copy based from asfault
 from OobSpeedSearch import *
-
-
 
 PREFAB_FILE = 'asfault.prefab'
 LUA_FILE = 'asfault.lua'

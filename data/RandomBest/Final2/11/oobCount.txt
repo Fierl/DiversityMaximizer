@@ -1,0 +1,10 @@
+Count1: 4
+Count2: 6
+Count3: 1
+Count4: 1
+Count5: 6
+Count6: 3
+Count7: 8
+Count8: 0
+Count9: 0
+Count10: 0
